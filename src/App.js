@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Product from './components/product/product.component';
+import product from './models/Product';
 
-function App() {
+function App() {  
+  const products = [
+    new product(1, 'Brown Brim', 'https://i.ibb.co/ZYW3VTp/brown-brim.png'),
+    new product(2, 'Blue Beanie', 'https://i.ibb.co/ypkgK0X/blue-beanie.png'),
+    new product(3, 'Brown Cowboy', 'https://i.ibb.co/QdJwgmp/brown-cowboy.png')
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">      
+      {
+        products.map(({id, ...otherProductProps}) => (
+          <Product key={id} {...otherProductProps}/>
+        ))
+      }
     </div>
   );
 }
