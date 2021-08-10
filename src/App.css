@@ -3,9 +3,3 @@
   display: grid;
   grid-template-columns: auto auto auto;
 }
-
-.App .product {
-  text-align: center;
-}
-
-

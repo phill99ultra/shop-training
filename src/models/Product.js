@@ -1,16 +1,22 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 class Product {
-    constructor(id, name, image) {
+    constructor(id, name, imageUrls, price, description, attributes) {
         this.id = id,
         this.name = name,
-        this.image = image
+        this.imageUrls = imageUrls,
+        this.price = price,
+        this.description = description,
+        this.attributes = attributes
     }
     toPOJO() {
         return {
             id: this.id,
             name: this.name,
-            image: this.image
+            imageUrls: this.imageUrls,
+            price: this.price,
+            description: this.description,
+            attributes: this.attributes 
         }
     }
     toJson() {
