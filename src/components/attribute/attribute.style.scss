@@ -1,0 +1,14 @@
+.attributes {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 10px 0;
+    .attribute{
+        span{
+            display: inline-block;
+            margin: 0 5px;
+            &:first-child{
+                text-transform: capitalize;
+            }
+        }
+    }
+}

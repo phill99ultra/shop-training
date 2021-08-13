@@ -1,0 +1,12 @@
+.price {
+    display: flex;
+    justify-content: space-around;
+    .old{
+        text-decoration: line-through;
+    }
+    .current{
+        color: red;
+        font-weight: 600;
+        
+    }
+}

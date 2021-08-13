@@ -5,6 +5,7 @@ import Product from './components/product/product.component';
 import ProductModel from './models/Product'; 
 import Money from './models/Money';
 import Attributes from './models/Attribute';
+// import { useState } from 'react'; 
 
 function App() {  
   const products = [
@@ -44,7 +45,8 @@ function App() {
             image={imageUrls[Math.floor((Math.random()*imageUrls.length))]}
             price={price}   
             description={description}
-            attributes={attributes}        
+            attributes={attributes}  
+            bold={id === 2 ? true : false}      
           />         
         ))
       }
