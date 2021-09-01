@@ -1,11 +1,12 @@
 import React from 'react';
 import Price from '../price/price.component';
 import Attribute from '../attribute/attribute.component';
-// import Price from '../price/price.component';
+import NoteCard from './note-card/note-card.component';
+
 import './product.style.scss';
 
 
-const Product = ({name, image, price, attributes, bold}) => { 
+const Product = ({name, image, price, description, attributes, bold, handleDeletNote, productId}) => { 
     const {standard, discount} = price || {};          
     return(
         <div  className='product'>
@@ -16,6 +17,12 @@ const Product = ({name, image, price, attributes, bold}) => {
                 standard={standard} 
                 discount={discount}
                 bold={bold}
+            />
+            <NoteCard
+                title={name}
+                note={description}
+                handleDeletNote={handleDeletNote}
+                productId={productId}
             />
         </div>
     )
