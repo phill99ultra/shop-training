@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Menu, MenuItem, Drawer, List, ListItem } from '@material-ui/core';
 import './App.css';
 // import component of the Product
 import Product from './components/product/product.component';
@@ -7,7 +6,6 @@ import Product from './components/product/product.component';
 import ProductModel from './models/Product'; 
 import Money from './models/Money';
 import Attributes from './models/Attribute';
-// import { useState } from 'react'; 
 
 function App() {  
   let products = [
@@ -38,74 +36,9 @@ function App() {
       'Lorem ipsum dolor sit amet.'
     )
   ];  
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const [state, setState] = React.useState(false);
-
-  const handleToggleDrawer = (open) => (event) => {
-    setState(open)
-  }
-
-  const list = () => (
-    <div onClick={handleToggleDrawer(false)}>      
-      <List>
-        <ListItem button>
-          Lorem ipsum dolor sit amet consectetur.
-        </ListItem>
-      </List>
-    </div>
-  )
-
-  const handleDeletNote = (id) => {
-    products = products.filter(product => product.id !== id);
-    console.log(id)
-    console.log(products)   
-  }
+  
   return (
-    <div className="App">
-      <Button
-        onClick={handleToggleDrawer(true)}
-      >
-        Open from left
-      </Button>
-      <Drawer
-        anchor={'left'}
-        open={state}
-        onClose={handleToggleDrawer(false)}
-      >
-        {list()}
-      </Drawer>
-      <Button
-        variant='contained'       
-        onClick={handleOpenMenu}
-      >
-        Open Menu
-      </Button>
-      <Menu
-        id='topMenu'
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>
-          Subscribe
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          Favorites
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          Compare
-        </MenuItem>
-      </Menu>   
+    <div className="App">      
       <div className='ProductsWrapper'>
         {
           products.map(({id, name, imageUrls, price, description, attributes}) => (              
@@ -116,8 +49,7 @@ function App() {
               price={price}   
               description={description}
               attributes={attributes}  
-              bold={id === 2 ? true : false} 
-              handleDeletNote={handleDeletNote}  
+              bold={id === 2 ? true : false}               
               productId={id}               
             />         
           ))
